@@ -1,0 +1,5 @@
+mysql-connector-python==9.1.0
+fastapi
+uvicorn==0.42.0
+matplotlib
+geopandas

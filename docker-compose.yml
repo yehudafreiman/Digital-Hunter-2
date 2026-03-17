@@ -1,0 +1,35 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: digital_hunter
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+
+  api:
+    build:
+      context: .
+      dockerfile: ./api/Dockerfile
+    networks:
+      - app-network
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_NAME=digital_hunter
+      - DB_USER=root
+      - DB_PASSWORD=root
+
+networks:
+  app-network:
+
+volumes:
+  mysql_data:

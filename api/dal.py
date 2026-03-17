@@ -1,14 +1,16 @@
 import mysql.connector
+import os
 from digital_hunter_map import plot_map_with_geometry
 
 class SqlQueries:
     def __init__(self):
         self.conn = mysql.connector.connect(
-            host='localhost',
-            port = 3307,
-            database='digital_hunter',
-            user='root',
-            password='root')
+            host = os.getenv('DB_HOST', 'localhost'),
+            port = os.getenv('DB_PORT', 3306),
+            database = os.getenv('DB_NAME', 'digital_hunter'),
+            user = os.getenv('DB_USER', 'root'),
+            password = os.getenv('DB_PASSWORD', 'root')
+        )
 
     # def find_all(self, table_name):
     #     cursor = self.conn.cursor(dictionary=True)

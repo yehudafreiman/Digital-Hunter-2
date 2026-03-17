@@ -11,6 +11,14 @@ Yehuda Freiman 205368319 Arava
  dump.sql נטען למסד הנתונים >
  dal.py מבצע שאילתות >
  main.py מקים שרת api לצורך גישה לשאילתות
+ 
+````
+
+````
+ מתודת visualization_of_target_trajectory בקובץ dal.py נקראת מקומית בלבד עקב שגיאת
+ 
+ RuntimeError: Cannot create a GUI FigureManager outside the main thread using the MacOS backend
+ Use a non-interactive backend like 'agg' to make plots on worker threads.
 ````
 
 ## דרישות מקדימות
@@ -25,6 +33,9 @@ Yehuda Freiman 205368319 Arava
 git clone https://github.com/yehudafreiman/Digital-Hunter-2.git
 # הרץ את כל השירותים
 docker-compose up --build
+# הרץ מתודת visualization_of_target_trajectory
+cd api
+python dal.py
 ```
 
 ## משתני סביבה
@@ -50,19 +61,12 @@ DB_PASSWORD=root
 │   │   ├── digital_hunter_map.cpython-313.pyc
 │   │   └── main.cpython-313.pyc
 │   ├── dal.py
-│   ├── digital_hunter_map.py
+│   ├── digital_hunter_map.py # help function for visualization_of_target_trajectory
 │   ├── main.py
-│   ├── ne_50m_admin_0_countries.dbf
-│   ├── ne_50m_admin_0_countries.shp
-│   ├── ne_50m_admin_0_countries.shx
+│   ├── ne_50m_admin_0_countries.dbf # help file for digital_hunter_map.py
+│   ├── ne_50m_admin_0_countries.shp # help file for digital_hunter_map.py
+│   ├── ne_50m_admin_0_countries.shx # help file for digital_hunter_map.py
 │   └── requirements.txt
 ├── docker-compose.yml
 └── dump.sql
-````
-
-````
- מתודת visualization_of_target_trajectory בקובץ dal.py נקראת מקומית בלבד עקב שגיאת
- 
- RuntimeError: Cannot create a GUI FigureManager outside the main thread using the MacOS backend
- Use a non-interactive backend like 'agg' to make plots on worker threads.
 ````

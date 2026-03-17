@@ -59,3 +59,10 @@ DB_PASSWORD=root
 ├── docker-compose.yml
 └── dump.sql
 ````
+
+````
+ מתודת visualization_of_target_trajectory בקובץ dal.py נקראת מקומית בלבד עקב שגיאת
+ 
+ RuntimeError: Cannot create a GUI FigureManager outside the main thread using the MacOS backend
+ Use a non-interactive backend like 'agg' to make plots on worker threads.
+````

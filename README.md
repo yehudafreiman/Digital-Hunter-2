@@ -1,6 +1,7 @@
 # Digital-Hunter-2
 
-# Final Exam Day 2 Yehuda Freiman 205368319 Arava
+Final Exam Day 2 
+Yehuda Freiman 205368319 Arava
 
 ## תיאור
 שירות api כותב שאילתות אנליטיות מול MySQL כדי להפיק תובנות מודיעיניות על סמך הנתונים שעובדו
